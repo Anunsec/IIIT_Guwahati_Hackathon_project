@@ -17,6 +17,8 @@ model User {
   transactions  Transaction[]
   accounts      Account[]
   budgets       Budget[]
+  questions    Question[] // A user can post multiple questions
+  answers      Answer[]   // A user can post multiple answers
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
@@ -100,3 +102,46 @@ enum RecurringInterval {
   MONTHLY
   YEARLY
 }
+
+model Question {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  userId      String    @map("user_id") // Foreign key to User
+  user        User      @relation(fields: [userId], references: [id])
+  tags        String[]  // Tags for categorization
+  views       Int       @default(0) // Number of views
+  answers     Answer[]  // Related answers
+  categoryId  String?   @map("category_id") // Foreign key to Category
+  category    Category? @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("questions")
+}
+
+model Answer {
+  id         String   @id @default(uuid())
+  content    String
+  userId     String   @map("user_id") // Foreign key to User
+  user       User     @relation(fields: [userId], references: [id])
+  questionId String   @map("question_id") // Foreign key to Question
+  question   Question @relation(fields: [questionId], references: [id])
+  upvotes    Int      @default(0) // Number of upvotes
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("answers")
+}
+
+model Category {
+  id          String     @id @default(uuid())
+  name        String     @unique
+  description String?
+  questions   Question[] // A category can have multiple questions
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("categories")
+}
+

@@ -41,13 +41,15 @@ const LandingPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuresData.map((feature, index) => (
-              <Card className="p-6" key={index}>
-                <CardContent className="space-y-4 pt-4">
-                  {feature.icon}
-                  <h3 className="text-xl font-semibold">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
+              <Link href={feature.href} className="hover:cursor-pointer">
+                <Card className="p-6" key={index}>
+                  <CardContent className="space-y-4 pt-4">
+                    {feature.icon}
+                    <h3 className="text-xl font-semibold">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -112,7 +114,9 @@ const LandingPage = () => {
               Your Personal AI Financial Mentor
             </h2>
             <p className="text-gray-600 mb-6">
-              Get personalized advice and guidance from our AI mentor. Set goals, track progress, and make informed decisions about your finances.
+              Get personalized advice and guidance from our AI mentor. Set
+              goals, track progress, and make informed decisions about your
+              finances.
             </p>
             <Button className="bg-blue-600 text-white hover:bg-blue-700">
               Start Your Journey
@@ -122,9 +126,12 @@ const LandingPage = () => {
             <Card className="p-6 shadow-lg">
               <CardContent className="space-y-4">
                 <div className="flex items-center">
-                  <span className="text-blue-600 text-xl font-semibold">💡</span>
+                  <span className="text-blue-600 text-xl font-semibold">
+                    💡
+                  </span>
                   <p className="ml-2 text-gray-700">
-                    Based on your spending patterns, I recommend allocating 20% of your income to savings.
+                    Based on your spending patterns, I recommend allocating 20%
+                    of your income to savings.
                   </p>
                 </div>
                 <Button className="w-full bg-gray-200 text-gray-700 hover:bg-gray-300">
