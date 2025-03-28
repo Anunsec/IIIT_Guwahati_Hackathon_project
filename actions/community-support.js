@@ -108,3 +108,31 @@ export async function upvoteAnswer(answesId) {
         throw new Error(error.message);
     }
 }
+
+export async function createReviewOfMentor(data) {
+    try {
+        const { userId } = await auth();
+        if (!userId) throw new Error("Unauthorized");
+    
+        const user = await db.user.findUnique({
+            where: { clerkUserId: userId },
+        });
+    
+        if (!user) {
+            throw new Error("User not found");
+        }
+    
+        const review = await db.review.create({
+            data: {
+                content: data.content,
+                mentorId: data.mentorId,
+                userId: user.id,
+                rating: data.rating,
+            },
+        });
+    
+        return review;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}

@@ -10,6 +10,7 @@ import { useRef, useEffect, useState } from "react";
 import { PostQuestion } from "./PostQuestion";
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
+import { MentorList } from "./Mentor";
 
 export default function CommunitySupport() {
   const questionSectionRef = useRef(null);
@@ -163,7 +164,7 @@ export default function CommunitySupport() {
       {/* Ask a Question Section */}
       <PostQuestion questionSectionRef={questionSectionRef} />
 
-      <div ref={mentorSectionRef} className="bg-white p-6 rounded-lg shadow-md">
+      {/* <div ref={mentorSectionRef} className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold">Available Mentors</h3>
         <div className="flex justify-between text-gray-600 text-sm mt-2">
           <p>All Expertise</p>
@@ -184,7 +185,8 @@ export default function CommunitySupport() {
             Request Mentorship
           </button>
         </div>
-      </div>
+      </div> */}
+      <MentorList mentorSectionRef={mentorSectionRef} />
     </div>
   );
 }
