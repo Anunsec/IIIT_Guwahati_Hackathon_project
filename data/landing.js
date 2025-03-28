@@ -6,6 +6,7 @@ import {
   Globe,
   Zap,
 } from "lucide-react";
+import { FaRegComments } from 'react-icons/fa';
 
 // Stats Data
 export const statsData = [
@@ -37,17 +38,16 @@ export const featuresData = [
     href: "/analytics",
   },
   {
-    icon: <Receipt className="h-8 w-8 text-blue-600" />,
-    title: "Smart Receipt Scanner",
-    description:
-      "Extract data automatically from receipts using advanced AI technology",
-    href: "/receipt-scanner",
+    icon: <FaRegComments className="h-8 w-8 text-blue-600" />,
+    title: "AI Financial Advisor",
+    description: "Get personalized financial advice powered by advanced AI technology.",
+    href: "/chatbot",
   },
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "Budget Planning",
+    title: "Dashboard - Budget Planning",
     description: "Create and manage budgets with intelligent recommendations",
-    href: "/budget-planning",
+    href: "/dashboard",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
