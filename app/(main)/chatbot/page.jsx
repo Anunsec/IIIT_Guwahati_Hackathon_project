@@ -94,17 +94,18 @@ const Page = () => {
                     : "bg-gray-200 text-gray-800"
                 }`}
               >
-                {msg.text === "..."
-                  ? (
-                    <div className="animate-pulse">
-                      <span className="dot">.</span>
-                      <span className="dot">.</span>
-                      <span className="dot">.</span>
-                    </div>
-                  ) : (
-                    // Render bot's response using ReactMarkdown
-                    <ReactMarkdown children={msg.text} remarkPlugins={[remarkGfm]} />
-                  )}
+                {msg.text === "..." ? (
+                  <div className="animate-pulse">
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                    <span className="dot">.</span>
+                  </div>
+                ) : (
+                  // Render bot's response using ReactMarkdown
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {msg.text}
+                  </ReactMarkdown>
+                )}
               </div>
             </div>
           ))}
