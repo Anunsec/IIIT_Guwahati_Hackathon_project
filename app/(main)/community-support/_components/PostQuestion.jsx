@@ -42,7 +42,7 @@ export const PostQuestion = ({ questionSectionRef }) => {
 
     setPosting(true); // Start loading
     try {
-      console.log("Posting question:", data);
+      // console.log("Posting question:", data);
       const question = await createQuestion(data);
       router.push(`/community-support/discussion/${question.id}`);
     } catch (err) {

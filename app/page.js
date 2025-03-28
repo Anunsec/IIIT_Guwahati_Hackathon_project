@@ -41,7 +41,7 @@ const LandingPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuresData.map((feature, index) => (
-              <Link href={feature.href} className="hover:cursor-pointer">
+              <Link key={index} href={feature.href} className="hover:cursor-pointer">
                 <Card className="p-6" key={index}>
                   <CardContent className="space-y-4 pt-4">
                     {feature.icon}
