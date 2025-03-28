@@ -34,32 +34,40 @@ export const featuresData = [
     title: "Advanced Analytics",
     description:
       "Get detailed insights into your spending patterns with AI-powered analytics",
+    href: "/analytics",
   },
   {
     icon: <Receipt className="h-8 w-8 text-blue-600" />,
     title: "Smart Receipt Scanner",
     description:
       "Extract data automatically from receipts using advanced AI technology",
+    href: "/receipt-scanner",
   },
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
     title: "Budget Planning",
     description: "Create and manage budgets with intelligent recommendations",
+    href: "/budget-planning",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
     title: "Community Support",
-    description: "Connect with a supportive financial community, share insights, and get expert guidance while managing multiple accounts and credit cards seamlessly",
+    description:
+      "Connect with a supportive financial community, share insights, and get expert guidance while managing multiple accounts and credit cards seamlessly",
+    href: "/community-support",
   },
   {
     icon: <Globe className="h-8 w-8 text-blue-600" />,
     title: "Learn Finance",
     description: "Interactive lessons to build your financial knowledge",
+    href: "/learn-finance",
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
     title: "Market Analysis",
-    description: "Leverage AI-driven market analysis to uncover trends, assess risks, and receive data-backed financial recommendations for smarter decision-making",
+    description:
+      "Leverage AI-driven market analysis to uncover trends, assess risks, and receive data-backed financial recommendations for smarter decision-making",
+    href: "/market-analysis",
   },
 ];
 

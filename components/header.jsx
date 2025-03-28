@@ -40,6 +40,9 @@ const Header = async () => {
         {/* Action Buttons */}
         <div className="flex items-center space-x-4">
           <SignedIn>
+            <Link href="/community-support" className="text-gray-600 hover:text-blue-600">
+              Community
+            </Link>
             <Link
               href="/dashboard"
               className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
