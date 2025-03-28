@@ -26,7 +26,7 @@ const MentorDetailPage = async ({ params }) => {
   }
 
 
-  console.log(mentor);
+//   console.log(mentor);
 
   // Calculate average rating
   const avgRating =
