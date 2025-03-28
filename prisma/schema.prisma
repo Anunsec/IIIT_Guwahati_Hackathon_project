@@ -19,6 +19,7 @@ model User {
   budgets       Budget[]
   questions    Question[] // A user can post multiple questions
   answers      Answer[]   // A user can post multiple answers
+  reviews       Review[]  // User can leave multiple reviews
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
@@ -144,4 +145,36 @@ model Category {
 
   @@map("categories")
 }
+
+model Mentor {
+  id          String    @id @default(uuid())
+  name        String
+  expertise   String[]  // Array of expertise areas
+  imageUrl    String?
+  reviews     Review[]  // One-to-many relation with Review model
+  email       String?   @unique  // Optional but unique
+  phone       String?   // Optional phone number
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("mentors")
+}
+
+
+model Review {
+  id         String   @id @default(uuid())
+  rating     Float    // Rating from 1.0 to 5.0
+  content    String?  // Optional review text
+  userId     String   // The user who wrote the review
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mentorId   String   // The mentor being reviewed
+  mentor     Mentor   @relation(fields: [mentorId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
+  @@index([mentorId])
+  @@map("reviews")
+}
+
 
