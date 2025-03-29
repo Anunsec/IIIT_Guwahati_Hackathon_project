@@ -20,6 +20,7 @@ model User {
   questions    Question[] // A user can post multiple questions
   answers      Answer[]   // A user can post multiple answers
   reviews       Review[]  // User can leave multiple reviews
+  courseTracking  CourseTracking?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
@@ -178,3 +179,14 @@ model Review {
 }
 
 
+
+model CourseTracking {
+  id         String  @id @default(uuid())
+  user       User    @relation(fields: [userId], references: [id])
+  userId     String  @unique  // Ensure only one tracking per user
+  progress   Int     @default(1) // Tracks completion from 1 to 10
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("course_tracking")
+}
