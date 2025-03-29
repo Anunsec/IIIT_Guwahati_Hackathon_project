@@ -40,6 +40,10 @@ const Header = async () => {
         {/* Action Buttons */}
         <div className="flex items-center space-x-4">
           <SignedIn>
+            <Link className="text-gray-600 hover:text-blue-600 flex space-x-2" href="/fincoach-ai">
+              <Bot size={18} />
+              <span>FinCoach AI</span>
+            </Link>
             <Link
               href="/community-support"
               className="text-gray-600 hover:text-blue-600"
